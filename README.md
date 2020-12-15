@@ -1,2 +1,2 @@
-# Advent-of-Code-2019
-Advent of Code 2019 - Let's hope I'll follow through with it.
+# My Advents of code
+Forget waiting for christmas ... this is a fun challenge but I'm doing it in my time. :)
