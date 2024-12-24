@@ -1,2 +1,2 @@
 Solution part A: 2
-Solution part B: 0
+Solution part B: 4
