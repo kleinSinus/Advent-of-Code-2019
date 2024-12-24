@@ -1,4 +1,4 @@
-test = True
+test = False
 inputFile = ''
 outputFile = ''
 
@@ -6,7 +6,7 @@ if (test):
     inputFile += 'test'
     outputFile += 'test'
 
-inputFile += 'input/day03.txt'
+inputFile += 'input/day03b.txt'
 outputFile += 'output/day03.txt'
 
 input = open(inputFile, "r")
@@ -25,6 +25,7 @@ seqEnd = 0
 mulX = 0
 mulY = 0
 resultSum = 0
+do = True
 for inputLine in input:
     for nextLetter in inputLine:
         if (state == 'init' and nextLetter == 'm'):
@@ -49,7 +50,7 @@ for inputLine in input:
         elif (state == 'inY' and isNum(nextLetter)):
             state = 'inY'
             mulY = 10 * mulY + int(nextLetter)
-        elif (state == 'inY' and nextLetter == ')'):
+        elif (state == 'inY' and nextLetter == ')' and do):
             state = 'close'
             print(str(mulX) + ' * ' + str(mulY) + ' ')
             resultSum += mulX * mulY
@@ -57,6 +58,26 @@ for inputLine in input:
             state = 'm'
             mulX = 0
             mulY = 0
+        elif (nextLetter == 'd'):
+            state = 'd'
+        elif (state == 'd' and nextLetter == 'o'):
+            state = 'do'
+        elif (state == 'do' and nextLetter == 'n'):
+            state = 'don'
+        elif (state == 'don' and nextLetter == '\''):
+            state = 'don\''
+        elif (state == 'don\'' and nextLetter == 't'):
+            state = 'don\'t'
+        elif (state == 'don\'t' and nextLetter == '('):
+            state = 'don\'t('
+        elif (state == 'don\'t(' and nextLetter == ')'):
+            state = 'init'
+            do = False
+        elif (state == 'do' and nextLetter == '('):
+            state = 'do('
+        elif (state == 'do(' and nextLetter == ')'):
+            state = 'init'
+            do = True
         else:
             #print('abort')
             state = 'init'
@@ -64,14 +85,8 @@ for inputLine in input:
             mulY = 0
 
 outA = resultSum
-output.write('Solution part A: ')    
+output.write('Solution: ')    
 output.write(str(outA) + '\n')
-
-# B) Problem Dampener
-
-outB = 0
-output.write('Solution part B: ')    
-output.write(str(outB) + '\n')
 
 input.close()
 output.close()
