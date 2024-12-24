@@ -1,1 +1,2 @@
-11
+Solution part A: 11
+Solution part B: 31
