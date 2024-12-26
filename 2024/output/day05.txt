@@ -1,1 +1,2 @@
-Solution: 4462
+Solution A: 4462
+Solution B: 6767

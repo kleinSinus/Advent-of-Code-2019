@@ -1,1 +1,2 @@
-Solution: 143
+Solution A: 143
+Solution B: 123
