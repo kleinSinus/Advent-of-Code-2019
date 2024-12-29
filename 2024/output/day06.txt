@@ -1,1 +1,2 @@
-Solution: 4656
+The warden visits 4656 distinct positions. 
+1575 loops can be introduced using a new obstacle. 
